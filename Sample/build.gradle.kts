@@ -65,16 +65,16 @@ android {
     }
 
     sourceSets {
-        getByName("main") {
-            setRoot(Build.SRC_MAIN)
-            manifest.srcFile("${Build.SRC_MAIN}AndroidManifest.xml")
-
-            java.srcDirs("${Build.SRC_MAIN}kotlin")
-            java.includes.add("/${Build.SRC_MAIN}**")
-            java.excludes.add("**/build/**")
-
-            res.srcDirs(meow.getAllResourcesSrcDirs(project))
-        }
+//        getByName("main") {
+//            setRoot(Build.SRC_MAIN)
+//            manifest.srcFile("${Build.SRC_MAIN}AndroidManifest.xml")
+//
+//            java.srcDirs("${Build.SRC_MAIN}kotlin")
+//            java.includes.add("/${Build.SRC_MAIN}**")
+//            java.excludes.add("**/build/**")
+//
+//            res.srcDirs(meow.getAllResourcesSrcDirs(project))
+//        }
     }
 
     // Exclude annotation from all of markwon dependency

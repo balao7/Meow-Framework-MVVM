@@ -176,14 +176,17 @@ fun getAllResourcesSrcDirs(project: Project, isLibrary: Boolean = false): ArrayL
     val packageName =
         if (isLibrary) AppConfig.Build.LIBRARY_PACKAGE else AppConfig.Build.APP_PACKAGE
     val list = arrayListOf<String>()
-    val path =
-        project.rootDir.absolutePath + "\\" + moduleName + "\\src\\main\\kotlin\\" + packageName
-    val root = File(path)
-    list.add(project.rootDir.absolutePath + "\\" + moduleName + "\\src\\main\\res")
-    root.listDirectoriesWithChild().forEach { directory ->
-        if (directory.isRes())
-            list.add(directory.path)
-    }
+    try {
+        val path =
+            project.rootDir.absolutePath + "\\" + moduleName + "\\src\\main\\kotlin\\" + packageName
+        val root = File(path)
+        list.add(project.rootDir.absolutePath + "\\" + moduleName + "\\src\\main\\res")
+        root.listDirectoriesWithChild().forEach { directory ->
+            if (directory.isRes())
+                list.add(directory.path)
+        }
+    } catch (ex: Exception) {}
+
     return list
 }
 
